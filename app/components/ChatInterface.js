@@ -1,7 +1,7 @@
 "use client";
 import { useCallback, useRef, useState } from "react";
 import ChatBoard from "./ChatBoard";
-import ChatBoardInput from "./chatBoardInput";
+import ChatBoardInput from "./ChatBoardInput";
 
 export default function ChatInterface({ chatMessage, conversationId }) {
   const [messages, setMessages] = useState(chatMessage);
