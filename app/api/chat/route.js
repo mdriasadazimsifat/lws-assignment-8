@@ -1,7 +1,7 @@
 import buildAiprompt from "@/app/lib/gemini/buildAiprompt";
 import Message from "@/app/lib/models/Message";
 import { GoogleGenerativeAI } from "@google/generative-ai";
-
+import connectMongo from "@/app/lib/dbConnect/connectMongo";
 const API_KEY = process.env.GEMINI_API_KEY || "";
 
 if (!API_KEY) {
@@ -19,6 +19,7 @@ export async function POST(req) {
   const currentMessage = body.currentMessage;
 
   try {
+    await connectMongo();
     if (body.isSave) {
       await Message.create({ ...currentMessage, sessionId: conversationId });
     }
