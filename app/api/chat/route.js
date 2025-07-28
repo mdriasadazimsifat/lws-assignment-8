@@ -65,6 +65,7 @@ export async function POST(req) {
       status: 200,
     });
   } catch (e) {
+    console.log(e);
     return new Response(
       JSON.stringify({ msg: "Failed to get stream from AI.", status: "fail" }),
       { status: 500 }
